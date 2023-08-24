@@ -1,0 +1,32 @@
+#git 
+git clone https://github.com/Kitt-AI/snowboy.git --config "http.proxy=192.168.102.20:12346"
+git checkout branch1 file_or_dir #把branch1的文件或文件夹复制到当前branch
+git checkout 目标版本号 #切换到目标版本的临时分支，回到最新版本通过命令 git checkout 分支名称
+git config --global [user.name/email] [http.proxy] 
+git rm --cached file_or_dir # 从该分支索引删除文件或文件夹而不删除源文件(make gitignore active)
+git reset --hard 目标版本号(hash)
+git restore --staged <files> 或 git reset -g <files> #撤销暂存区修改
+
+scp ubuntu@192.168.1.95:/home/ubuntu/    
+scp aimall@192.168.101.219:/home/aimall/
+
+#vnc
+sudo x11vnc   -rfbauth ~/.vnc/passwd -forever -bg -usepw -display :1 #219盒子的vnc命令
+
+#docker
+sudo docker run --device /dev/net/tun --cap-add NET_ADMIN -ti -e PASSWORD=0000 -v $HOME/.ecdata:/root -p 127.0.0.1:5901:5901 -p 127.0.0.1:1080:1080 -p 127.0.0.1:2222:22 hagb/docker-easyconnect:7.6.7
+sudo docker start vpn
+sudo docker exec -it vpn bash
+
+#nginx
+sudo /usr/local/nginx/sbin/nginx -c ~/xiaolongwang/nginx/nginx-1.13.7/conf/nginx.conf #启动
+sudo /usr/local/nginx/sbin/nginx -s stop; #停止服务器
+sudo /usr/local/nginx/sbin/nginx -s reload; #重新加载服务器 
+
+#ffmpeg
+ffmpeg -i rtmp://127.0.0.1/live/1 -i rtmp://127.0.0.1/live/2 -map 0:v -map 1:a -acodec copy -vcodec copy -copyts -rtmp_buffer 100  -f flv rtmp://127.0.0.1/live/3 #推流合并
+服务地址 http://127.0.0.1/test?port=1935&app=live&stream=1    
+
+#temux
+ssh u0_a545@192.168.1.94 -p 8022
+
